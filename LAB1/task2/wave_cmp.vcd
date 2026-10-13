@@ -1,0 +1,75 @@
+$date
+	Tue Oct 13 20:36:59 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_cmp $end
+$var wire 1 ! LT $end
+$var wire 1 " GT $end
+$var wire 1 # EQ $end
+$var reg 1 $ A $end
+$var reg 1 % B $end
+$var integer 32 & errors [31:0] $end
+$scope module test $end
+$var wire 1 $ A $end
+$var wire 1 % B $end
+$var wire 1 ' EQ_internal $end
+$var wire 1 ( LT_internal $end
+$var wire 1 ! LT $end
+$var wire 1 ) GT_internal $end
+$var wire 1 " GT $end
+$var wire 1 # EQ $end
+$var wire 1 * B_internal $end
+$var wire 1 + A_internal $end
+$var parameter 32 , INVERSE_INPUT $end
+$var parameter 32 - INVERSE_OUT $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1 -
+b1 ,
+$end
+#0
+$dumpvars
+1+
+1*
+0)
+0(
+1'
+b0 &
+0%
+0$
+0#
+1"
+1!
+$end
+#2000
+1#
+0"
+0'
+1)
+0*
+1%
+#4000
+0!
+1"
+1(
+1*
+0)
+0+
+0%
+1$
+#6000
+0#
+1!
+1'
+0(
+0*
+1%
+#8000

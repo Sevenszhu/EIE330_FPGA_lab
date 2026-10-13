@@ -1,0 +1,5 @@
+Time,tb_cmp.LT,tb_cmp.GT,tb_cmp.EQ,tb_cmp.A,tb_cmp.B,tb_cmp.errors[31:0],tb_cmp.test.A,tb_cmp.test.B,tb_cmp.test.EQ_internal,tb_cmp.test.LT_internal,tb_cmp.test.LT,tb_cmp.test.GT_internal,tb_cmp.test.GT,tb_cmp.test.EQ,tb_cmp.test.B_internal,tb_cmp.test.A_internal,tb_cmp.test.INVERSE_INPUT,tb_cmp.test.INVERSE_OUT
+0,1,1,0,0,0,0,0,0,1,0,1,0,1,0,1,1,1,1
+2000,1,0,1,0,1,0,0,1,0,0,1,1,0,1,0,1,1,1
+4000,0,1,1,1,0,0,1,0,0,1,0,0,1,1,1,0,1,1
+6000,1,1,0,1,1,0,1,1,1,0,1,0,1,0,0,0,1,1

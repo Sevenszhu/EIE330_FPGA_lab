@@ -1,0 +1,97 @@
+$date
+	Tue Oct 13 14:08:17 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_adder $end
+$var wire 1 ! carry $end
+$var wire 1 " O0 $end
+$var reg 1 # A $end
+$var reg 1 $ B $end
+$var reg 1 % C $end
+$var integer 32 & errors [31:0] $end
+$scope module test $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 % C $end
+$var wire 1 ' O0_internal $end
+$var wire 1 ( carry_internal $end
+$var wire 1 ! carry $end
+$var wire 1 " O0 $end
+$var wire 1 ) C_internal $end
+$var wire 1 * B_internal $end
+$var wire 1 + A_internal $end
+$var parameter 32 , INVERSE_INPUT $end
+$var parameter 32 - INVERSE_OUT $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1 -
+b1 ,
+$end
+#0
+$dumpvars
+1+
+1*
+1)
+1(
+1'
+b0 &
+0%
+0$
+0#
+0"
+0!
+$end
+#2000
+1"
+0'
+0)
+1%
+#4000
+1)
+0*
+0%
+1$
+#6000
+1!
+0(
+0"
+1'
+0)
+1%
+#8000
+0!
+1"
+1(
+0'
+1)
+1*
+0+
+0%
+0$
+1#
+#10000
+1!
+0"
+0(
+1'
+0)
+1%
+#12000
+1)
+0*
+0%
+1$
+#14000
+1"
+0'
+0)
+1%
+#16000

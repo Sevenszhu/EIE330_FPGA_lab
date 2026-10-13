@@ -1,0 +1,9 @@
+Time,tb_adder.carry,tb_adder.O0,tb_adder.A,tb_adder.B,tb_adder.C,tb_adder.errors[31:0],tb_adder.test.A,tb_adder.test.B,tb_adder.test.C,tb_adder.test.O0_internal,tb_adder.test.carry_internal,tb_adder.test.carry,tb_adder.test.O0,tb_adder.test.C_internal,tb_adder.test.B_internal,tb_adder.test.A_internal,tb_adder.test.INVERSE_INPUT,tb_adder.test.INVERSE_OUT
+0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,1,1,1,1
+2000,0,1,0,0,1,0,0,0,1,0,1,0,1,0,1,1,1,1
+4000,0,1,0,1,0,0,0,1,0,0,1,0,1,1,0,1,1,1
+6000,1,0,0,1,1,0,0,1,1,1,0,1,0,0,0,1,1,1
+8000,0,1,1,0,0,0,1,0,0,0,1,0,1,1,1,0,1,1
+10000,1,0,1,0,1,0,1,0,1,1,0,1,0,0,1,0,1,1
+12000,1,0,1,1,0,0,1,1,0,1,0,1,0,1,0,0,1,1
+14000,1,1,1,1,1,0,1,1,1,0,0,1,1,0,0,0,1,1
