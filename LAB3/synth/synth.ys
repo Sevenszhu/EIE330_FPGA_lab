@@ -1,0 +1,29 @@
+read_verilog -sv ../code/vga.v
+hierarchy -check -top vga
+
+proc
+flatten
+opt
+fsm
+opt
+memory
+opt
+techmap
+opt
+
+design -save generic
+
+# Generic four-input LUT estimate and netlist.
+abc -lut 4
+clean
+tee -o vga_lut4_stat.txt stat
+write_verilog -noattr vga_lut4_netlist.v
+write_json vga_lut4_netlist.json
+
+# Generic six-input LUT estimate and netlist.
+design -load generic
+abc -lut 6
+clean
+tee -o vga_lut6_stat.txt stat
+write_verilog -noattr vga_lut6_netlist.v
+write_json vga_lut6_netlist.json

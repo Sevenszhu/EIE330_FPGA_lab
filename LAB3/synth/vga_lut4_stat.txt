@@ -1,0 +1,20 @@
+
+13. Printing statistics.
+
+=== vga ===
+
+   Number of wires:                 71
+   Number of wire bits:            148
+   Number of public wires:          12
+   Number of public wire bits:      71
+   Number of ports:                  6
+   Number of port bits:             21
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 91
+     $_DFF_P_                        1
+     $_SDFFE_PN0N_                  10
+     $_SDFF_PP0_                    10
+     $lut                           70
+
