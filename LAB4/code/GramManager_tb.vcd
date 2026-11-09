@@ -1,0 +1,156 @@
+$date
+	Mon Nov  9 16:28:50 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module GramManager_tb $end
+$var wire 16 ! rgb [15:0] $end
+$var reg 7 " blockx [6:0] $end
+$var reg 6 # blocky [5:0] $end
+$var reg 1 $ clk $end
+$var reg 1 % reboot $end
+$var reg 1 & sw $end
+$scope module dut $end
+$var wire 7 ' blockx [6:0] $end
+$var wire 6 ( blocky [5:0] $end
+$var wire 1 $ clk $end
+$var wire 1 % reboot $end
+$var wire 1 & sw $end
+$var reg 2 ) pages [1:0] $end
+$var reg 16 * rgb [15:0] $end
+$var reg 1 + sw_old $end
+$scope function end_pixel $end
+$var reg 7 , x [6:0] $end
+$var reg 6 - y [5:0] $end
+$upscope $end
+$scope function must_pixel $end
+$var reg 7 . x [6:0] $end
+$var reg 6 / y [5:0] $end
+$upscope $end
+$upscope $end
+$scope task press_and_check $end
+$var reg 2 0 expected_page [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx 0
+bx /
+bx .
+bx -
+bx ,
+0+
+bx *
+b0 )
+b0 (
+b0 '
+0&
+0%
+0$
+b0 #
+b0 "
+bx !
+$end
+#10000
+1$
+#20000
+0$
+#30000
+1%
+1$
+#40000
+0$
+#50000
+1$
+#51000
+b1 0
+#60000
+1&
+0$
+#70000
+b0 .
+b0 /
+b0 !
+b0 *
+b1 )
+1+
+1$
+#80000
+0&
+0$
+#90000
+0+
+1$
+#91000
+b10 0
+#100000
+1&
+0$
+#110000
+b0 ,
+b0 -
+b10 )
+1+
+1$
+#120000
+0&
+0$
+#130000
+0+
+1$
+#131000
+b0 0
+#140000
+1&
+0$
+#150000
+b1111100000000000 !
+b1111100000000000 *
+b0 )
+1+
+1$
+#160000
+0&
+0$
+#170000
+0+
+1$
+#180000
+1&
+0$
+#190000
+b0 !
+b0 *
+b1 )
+1+
+1$
+#200000
+0$
+#210000
+1$
+#220000
+0$
+#230000
+1$
+#240000
+0$
+#250000
+1$
+#260000
+0&
+0$
+#270000
+b1111100000000000 !
+b1111100000000000 *
+b0 )
+0%
+1$
+#271000
