@@ -1,0 +1,427 @@
+$date
+	Tue Nov 24 17:23:22 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module player_movement_tb $end
+$var wire 3 ! y [2:0] $end
+$var wire 3 " x [2:0] $end
+$var wire 1 # win $end
+$var wire 6 $ playerPos [5:0] $end
+$var wire 4 % dir [3:0] $end
+$var reg 3 & case_id [2:0] $end
+$var reg 1 ' clk $end
+$var reg 1 ( down $end
+$var reg 1 ) left $end
+$var reg 1 * right $end
+$var reg 1 + rstn $end
+$var reg 1 , up $end
+$var integer 32 - result_fd [31:0] $end
+$scope module position $end
+$var wire 1 ' clk $end
+$var wire 1 ( down $end
+$var wire 4 . key_rise [3:0] $end
+$var wire 1 ) left $end
+$var wire 1 * right $end
+$var wire 1 + rstn $end
+$var wire 1 , up $end
+$var wire 3 / y [2:0] $end
+$var wire 3 0 x [2:0] $end
+$var wire 1 # win $end
+$var wire 4 1 key_now [3:0] $end
+$var wire 4 2 dir [3:0] $end
+$var reg 6 3 NextPlayerPos [5:0] $end
+$var reg 1 4 can_move $end
+$var reg 4 5 key_old [3:0] $end
+$var reg 6 6 playerPos [5:0] $end
+$var reg 4 7 requested_dir [3:0] $end
+$var reg 2 8 stage [1:0] $end
+$var reg 3 9 win_count [2:0] $end
+$upscope $end
+$scope module rom $end
+$var wire 3 : x [2:0] $end
+$var wire 3 ; y [2:0] $end
+$var wire 4 < movement [3:0] $end
+$var wire 8 = address [7:0] $end
+$var parameter 256 > MOVEMENT_TABLE $end
+$upscope $end
+$scope task check_move $end
+$upscope $end
+$scope task reset_position $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b10101100010000101000111011000100001100000010100101000011000000001011010000110000000000110000000000011010110101000010101111100100000000010000001010011111110101000010000000101001010000010000001010111100111101000000000000100001100101000001100011001100110101 >
+$end
+#0
+$dumpvars
+bx00 =
+bx <
+bx ;
+bx :
+bx 9
+bx 8
+bx 7
+bx 6
+bx 5
+x4
+bx 3
+bx 2
+b0 1
+bx 0
+bx /
+b0 .
+b10000000000000000000000000000011 -
+0,
+1+
+0*
+0)
+0(
+0'
+b0 &
+bx %
+bx $
+x#
+bx "
+bx !
+$end
+#2000
+b101 %
+b101 2
+b101 <
+b0 =
+b0 "
+b0 0
+b0 :
+b0 !
+b0 /
+b0 ;
+b0 9
+04
+b0 7
+b0 5
+b0 8
+b0 3
+0#
+b0 $
+b0 6
+0+
+#10000
+1'
+#20000
+0'
+#27000
+1+
+#30000
+1'
+#40000
+0'
+#50000
+1'
+#51000
+b1 &
+#60000
+b1 .
+b1 1
+1*
+0'
+#70000
+b0 .
+b1 8
+b1 7
+b1 5
+1'
+#80000
+0'
+#90000
+b10 8
+14
+1'
+#100000
+0'
+#110000
+b11 8
+b1 3
+1'
+#120000
+0'
+#130000
+b11 %
+b11 2
+b11 <
+b100 =
+b1 "
+b1 0
+b1 :
+b0 8
+b1 $
+b1 6
+1'
+#140000
+b0 1
+0*
+0'
+#150000
+b0 5
+1'
+#160000
+0'
+#170000
+1'
+#171000
+b10 &
+#180000
+b100 .
+b100 1
+1(
+0'
+#190000
+b0 .
+b1 8
+b100 7
+b100 5
+1'
+#200000
+0'
+#210000
+b10 8
+04
+1'
+#220000
+0'
+#230000
+b11 8
+1'
+#240000
+0'
+#250000
+b0 8
+1'
+#260000
+b0 1
+0(
+0'
+#270000
+b0 5
+1'
+#280000
+0'
+#290000
+1'
+#291000
+b0 &
+#300000
+b101 %
+b101 2
+b101 <
+b0 =
+b0 "
+b0 0
+b0 :
+b0 7
+b0 3
+b0 $
+b0 6
+0+
+0'
+#310000
+1'
+#320000
+1+
+0'
+#330000
+1'
+#331000
+b11 &
+#340000
+b1000 .
+b1000 1
+1,
+0'
+#350000
+b0 .
+b1 8
+b1000 7
+b1000 5
+1'
+#360000
+0'
+#370000
+b10 8
+1'
+#380000
+0'
+#390000
+b11 8
+1'
+#400000
+0'
+#410000
+b0 8
+1'
+#420000
+b0 1
+0,
+0'
+#430000
+b0 5
+1'
+#440000
+0'
+#450000
+1'
+#451000
+b100 &
+#460000
+b10 .
+b10 1
+1)
+0'
+#470000
+b0 .
+b1 8
+b10 7
+b10 5
+1'
+#480000
+0'
+#490000
+b10 8
+1'
+#500000
+0'
+#510000
+b11 8
+1'
+#520000
+0'
+#530000
+b0 8
+1'
+#540000
+b0 1
+0)
+0'
+#550000
+b0 5
+1'
+#560000
+0'
+#570000
+1'
+#580000
+b110 %
+b110 2
+b110 <
+b11100 =
+b111 "
+b111 0
+b111 :
+b111 3
+b111 $
+b111 6
+0'
+#581000
+b101 &
+#590000
+1'
+#600000
+b1 .
+b1 1
+1*
+0'
+#610000
+b0 .
+b1 8
+b1 7
+b1 5
+1'
+#620000
+0'
+#630000
+b10 8
+1'
+#640000
+0'
+#650000
+b11 8
+1'
+#660000
+0'
+#670000
+b0 8
+1'
+#680000
+b0 1
+0*
+0'
+#690000
+b0 5
+1'
+#700000
+0'
+#710000
+1'
+#720000
+b1 %
+b1 2
+b1 <
+b11100000 =
+b0 "
+b0 0
+b0 :
+b111 !
+b111 /
+b111 ;
+b111000 3
+b111000 $
+b111000 6
+0'
+#721000
+b110 &
+#730000
+1'
+#740000
+b100 .
+b100 1
+1(
+0'
+#750000
+b0 .
+b1 8
+b100 7
+b100 5
+1'
+#760000
+0'
+#770000
+b10 8
+1'
+#780000
+0'
+#790000
+b11 8
+1'
+#800000
+0'
+#810000
+b0 8
+1'
+#820000
+b0 1
+0(
+0'
+#830000
+b0 5
+1'
+#840000
+0'
+#850000
+1'
+#851000

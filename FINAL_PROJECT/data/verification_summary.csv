@@ -1,0 +1,14 @@
+Test ID,Test Function,Expected Result,Result,Evidence
+T01,Reset,Initial state restored,Pass,data/integrated_game_results.csv
+T02,Button debounce,No repeated accepted input,Pass,data/integrated_game_trace.csv
+T03,Button priority,One selected direction,Pass,data/integrated_game_results.csv
+T04,ROM consistency,All 64 cells match,Pass,data/movement_static_check.csv; data/movement_rom_sim.csv
+T05,Valid movement,Position updated,Pass,data/integrated_game_trace.csv
+T06,Wall collision,Position unchanged,Pass,data/player_movement_cases.csv
+T07,Boundary protection,No coordinate overflow,Pass,data/player_movement_cases.csv
+T08,VGA timing,Correct timing counts,Pass,data/vga_timing_results.csv; data/vga_waveform_samples.csv
+T09,RGB output,Correct pixel color,Pass,data/graphics_cases.csv
+T10,Page transition,Correct page sequence,Pass,data/integrated_game_trace.csv
+T11,Maze solvability,A valid shortest route exists,Pass,data/maze_route_results.csv
+T12,Victory detection,Win signal asserted,Pass,data/integrated_game_trace.csv
+T13,Position reset,"Return to (0,0)",Pass,data/integrated_game_trace.csv

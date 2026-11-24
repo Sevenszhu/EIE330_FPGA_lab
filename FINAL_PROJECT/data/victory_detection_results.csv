@@ -1,0 +1,6 @@
+check,expected,observed,result
+goal_commit,63 and win=1,63 and win=1,PASS
+page_transition,2,2,PASS
+position_reset,0,0,PASS
+victory_hold_cycles,5,5,PASS
+end_page_retention,2 and RGB=ffff,2 and RGB=ffff,PASS

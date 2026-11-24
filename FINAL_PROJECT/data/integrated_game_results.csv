@@ -1,0 +1,8 @@
+test_id,test_function,expected,observed,result
+T01,Reset,start page and position 0,page 0 position 0,PASS
+T03,Button priority,Up wins simultaneous Up and Down,handling 10000,PASS
+T02,Button debounce,bounce yields one movement event,one event and position 1,PASS
+T05,Valid movement,26 legal moves reach goal,position 63 observed before reset,PASS
+T10,Page transition,start gameplay end,page sequence 0 1 2,PASS
+T12,Victory detection,win asserted at goal,win 1 at position 63,PASS
+T13,Position reset,return to start after victory,position 0 after five cycles,PASS

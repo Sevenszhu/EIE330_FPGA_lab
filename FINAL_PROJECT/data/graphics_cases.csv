@@ -1,0 +1,7 @@
+case,page,blockx,blocky,on_maze,maze_address,text_pixel,rgb,expected_rgb,result
+maze_glyph_on,0,17,14,0,8,1,ffff,ffff,PASS
+maze_glyph_off,0,16,14,0,15,0,0000,0000,PASS
+player_red,1,25,13,1,0,0,f800,f800,PASS
+path_white,1,26,13,1,1,0,ffff,ffff,PASS
+wall_black,1,30,13,1,5,0,0000,0000,PASS
+outside_black,1,24,13,0,7,0,0000,0000,PASS
