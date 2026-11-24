@@ -21,7 +21,7 @@ module vga_waveform_tb;
     endtask
 
     initial begin
-        fd = $fopen("data/vga_waveform_samples.csv", "w");
+        fd = $fopen("data/traces/vga_waveform_samples.csv", "w");
         if (!fd) $fatal(1, "Cannot open VGA sample CSV");
         $fdisplay(fd, "kind,time_ns,pixel_index,h_count,v_count,clk,clk25,h_sync,v_sync,blockx,blocky");
         sample_count = 0;

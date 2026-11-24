@@ -68,12 +68,12 @@ module graphics_page_tb;
     endtask
 
     initial begin
-        page_fd = $fopen("data/page_state_cases.csv", "w");
-        graphics_fd = $fopen("data/graphics_cases.csv", "w");
+        page_fd = $fopen("data/traces/page_state_cases.csv", "w");
+        graphics_fd = $fopen("data/results/graphics_cases.csv", "w");
         if (!page_fd || !graphics_fd) $fatal(1, "Cannot open test result CSVs");
         $fdisplay(page_fd, "time_ns,event,manual_sw,win,swpage,page,expected_page");
         $fdisplay(graphics_fd, "case,page,blockx,blocky,on_maze,maze_address,text_pixel,rgb,expected_rgb,result");
-        $dumpfile("data/graphics_page.vcd");
+        $dumpfile("data/waveforms/graphics_page.vcd");
         $dumpvars(0, graphics_page_tb);
         checks = 0;
 

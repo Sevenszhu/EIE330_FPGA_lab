@@ -57,10 +57,10 @@ module victory_detection_tb;
     endtask
 
     initial begin
-        $dumpfile("data/victory_detection.vcd");
+        $dumpfile("data/waveforms/victory_detection.vcd");
         $dumpvars(0, victory_detection_tb);
-        waveform_fd = $fopen("data/victory_detection_waveform.csv", "w");
-        result_fd = $fopen("data/victory_detection_results.csv", "w");
+        waveform_fd = $fopen("data/traces/victory_detection_waveform.csv", "w");
+        result_fd = $fopen("data/results/victory_detection_results.csv", "w");
         if (!waveform_fd || !result_fd)
             $fatal(1, "Cannot open victory verification result files");
 

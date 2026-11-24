@@ -2,7 +2,7 @@ import csv
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
 
 
@@ -17,15 +17,15 @@ def require(condition, message):
 
 
 def main():
-    integrated = {row["test_id"]: row for row in rows("integrated_game_results.csv")}
-    movement = rows("player_movement_cases.csv")
+    integrated = {row["test_id"]: row for row in rows("results/integrated_game_results.csv")}
+    movement = rows("results/player_movement_cases.csv")
     movement_by_id = {row["case_id"]: row for row in movement}
-    rom_static = rows("movement_static_check.csv")
-    rom_sim = rows("movement_rom_sim.csv")
-    vga = rows("vga_timing_results.csv")
-    vga_samples = rows("vga_waveform_samples.csv")
-    graphics = rows("graphics_cases.csv")
-    route = rows("maze_route_results.csv")
+    rom_static = rows("results/movement_static_check.csv")
+    rom_sim = rows("results/movement_rom_sim.csv")
+    vga = rows("results/vga_timing_results.csv")
+    vga_samples = rows("traces/vga_waveform_samples.csv")
+    graphics = rows("results/graphics_cases.csv")
+    route = rows("results/maze_route_results.csv")
 
     for test_id in ("T01", "T02", "T03", "T05", "T10", "T12", "T13"):
         require(test_id in integrated and integrated[test_id]["result"] == "PASS",
@@ -53,19 +53,19 @@ def main():
             route[0]["final_position"] == "63", "T11 shortest route")
 
     summary = [
-        ("T01", "Reset", "Initial state restored", "data/integrated_game_results.csv"),
-        ("T02", "Button debounce", "No repeated accepted input", "data/integrated_game_trace.csv"),
-        ("T03", "Button priority", "One selected direction", "data/integrated_game_results.csv"),
-        ("T04", "ROM consistency", "All 64 cells match", "data/movement_static_check.csv; data/movement_rom_sim.csv"),
-        ("T05", "Valid movement", "Position updated", "data/integrated_game_trace.csv"),
-        ("T06", "Wall collision", "Position unchanged", "data/player_movement_cases.csv"),
-        ("T07", "Boundary protection", "No coordinate overflow", "data/player_movement_cases.csv"),
-        ("T08", "VGA timing", "Correct timing counts", "data/vga_timing_results.csv; data/vga_waveform_samples.csv"),
-        ("T09", "RGB output", "Correct pixel color", "data/graphics_cases.csv"),
-        ("T10", "Page transition", "Correct page sequence", "data/integrated_game_trace.csv"),
-        ("T11", "Maze solvability", "A valid shortest route exists", "data/maze_route_results.csv"),
-        ("T12", "Victory detection", "Win signal asserted", "data/integrated_game_trace.csv"),
-        ("T13", "Position reset", "Return to (0,0)", "data/integrated_game_trace.csv"),
+        ("T01", "Reset", "Initial state restored", "data/results/integrated_game_results.csv"),
+        ("T02", "Button debounce", "No repeated accepted input", "data/traces/integrated_game_trace.csv"),
+        ("T03", "Button priority", "One selected direction", "data/results/integrated_game_results.csv"),
+        ("T04", "ROM consistency", "All 64 cells match", "data/results/movement_static_check.csv; data/results/movement_rom_sim.csv"),
+        ("T05", "Valid movement", "Position updated", "data/traces/integrated_game_trace.csv"),
+        ("T06", "Wall collision", "Position unchanged", "data/results/player_movement_cases.csv"),
+        ("T07", "Boundary protection", "No coordinate overflow", "data/results/player_movement_cases.csv"),
+        ("T08", "VGA timing", "Correct timing counts", "data/results/vga_timing_results.csv; data/traces/vga_waveform_samples.csv"),
+        ("T09", "RGB output", "Correct pixel color", "data/results/graphics_cases.csv"),
+        ("T10", "Page transition", "Correct page sequence", "data/traces/integrated_game_trace.csv"),
+        ("T11", "Maze solvability", "A valid shortest route exists", "data/results/maze_route_results.csv"),
+        ("T12", "Victory detection", "Win signal asserted", "data/traces/integrated_game_trace.csv"),
+        ("T13", "Position reset", "Return to (0,0)", "data/traces/integrated_game_trace.csv"),
     ]
     with (DATA / "verification_summary.csv").open("w", newline="") as handle:
         writer = csv.writer(handle, lineterminator="\n")

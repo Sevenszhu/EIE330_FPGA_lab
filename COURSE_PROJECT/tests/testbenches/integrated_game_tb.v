@@ -201,8 +201,8 @@ module integrated_game_tb;
         route_position[21]=38;route_position[22]=46;route_position[23]=54;
         route_position[24]=62;route_position[25]=63;
 
-        trace_fd = $fopen("data/integrated_game_trace.csv", "w");
-        result_fd = $fopen("data/integrated_game_results.csv", "w");
+        trace_fd = $fopen("data/traces/integrated_game_trace.csv", "w");
+        result_fd = $fopen("data/results/integrated_game_results.csv", "w");
         if (!trace_fd || !result_fd) begin
             $display("FAIL: cannot open integrated result files");
             $finish;

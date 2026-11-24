@@ -83,9 +83,9 @@ module player_movement_tb;
     endtask
 
     initial begin
-        $dumpfile("data/player_movement.vcd");
+        $dumpfile("data/waveforms/player_movement.vcd");
         $dumpvars(0, player_movement_tb);
-        result_fd = $fopen("data/player_movement_cases.csv", "w");
+        result_fd = $fopen("data/results/player_movement_cases.csv", "w");
         if (!result_fd) $fatal(1, "Cannot open position result CSV");
         $fdisplay(result_fd,
                   "case_id,initial_pos,requested_dir,rom_dir,can_move,next_pos,final_pos,result");

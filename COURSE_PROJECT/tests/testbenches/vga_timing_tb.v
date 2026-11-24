@@ -40,8 +40,8 @@ module vga_timing_tb;
     endtask
 
     initial begin
-        results_fd = $fopen("data/vga_timing_results.csv", "w");
-        events_fd = $fopen("data/vga_timing_events.csv", "w");
+        results_fd = $fopen("data/results/vga_timing_results.csv", "w");
+        events_fd = $fopen("data/traces/vga_timing_events.csv", "w");
         if (!results_fd || !events_fd)
             $fatal(1, "Cannot open output CSV files; create the data directory first.");
 
@@ -124,9 +124,9 @@ module vga_timing_tb;
             v_sync_lines != 2 || line_period_ns != 32000 ||
             frame_period_ns != 16800000 || block_width_pixels != 16 ||
             block_height_lines != 16)
-            $fatal(1, "VGA timing check failed. See data/vga_timing_results.csv.");
+            $fatal(1, "VGA timing check failed. See data/results/vga_timing_results.csv.");
 
-        $display("PASS: all VGA timing checks; measured data written to data/*.csv");
+        $display("PASS: all VGA timing checks; measured data written to data/results/ and data/traces/");
         $finish;
     end
 endmodule

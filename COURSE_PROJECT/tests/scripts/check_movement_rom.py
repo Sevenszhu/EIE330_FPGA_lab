@@ -34,9 +34,10 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--code-dir", type=Path, required=True)
     parser.add_argument("--out-dir", type=Path,
-                        default=Path(__file__).resolve().parents[1] / "data")
+                        default=Path(__file__).resolve().parents[2] / "data")
     args = parser.parse_args()
-    args.out_dir.mkdir(parents=True, exist_ok=True)
+    (args.out_dir / "results").mkdir(parents=True, exist_ok=True)
+    (args.out_dir / "reference").mkdir(parents=True, exist_ok=True)
     maze_map, rows = read_constants(args.code_dir)
 
     records = []
@@ -49,11 +50,11 @@ def main():
             records.append((x, y, 4 * (8 * y + x), format(actual, "04b"),
                             format(expected, "04b"), "PASS" if actual == expected else "FAIL"))
 
-    with (args.out_dir / "movement_static_check.csv").open("w", newline="") as handle:
+    with (args.out_dir / "results/movement_static_check.csv").open("w", newline="") as handle:
         writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(("x", "y", "address", "rom_bits", "map_expected_bits", "result"))
         writer.writerows(records)
-    (args.out_dir / "expected_movement.hex").write_text(
+    (args.out_dir / "reference/expected_movement.hex").write_text(
         "".join(f"{value:x}\n" for value in expected_values), encoding="ascii")
 
     failures = [row for row in records if row[-1] != "PASS"]

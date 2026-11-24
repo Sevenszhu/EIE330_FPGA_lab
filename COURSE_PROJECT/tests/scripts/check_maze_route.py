@@ -3,7 +3,7 @@ from collections import deque
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
 ROUTE = "RRRRDDLDLDLDDDRRURUURRDDDR"
 DELTAS = {"R": (1, 0, 0b0001), "L": (-1, 0, 0b0010),
@@ -35,8 +35,10 @@ def shortest_length(movement):
 
 
 def main():
+    (DATA / "results").mkdir(parents=True, exist_ok=True)
+    (DATA / "traces").mkdir(parents=True, exist_ok=True)
     movement = [int(line, 16) for line in
-                (DATA / "expected_movement.hex").read_text().splitlines()]
+                (DATA / "reference/expected_movement.hex").read_text().splitlines()]
     if len(movement) != 64:
         raise ValueError("Expected movement data for 64 cells")
 
@@ -52,12 +54,12 @@ def main():
 
     shortest = shortest_length(movement)
     passed = position == 63 and len(ROUTE) == shortest == 26
-    with (DATA / "maze_route_trace.csv").open("w", newline="") as handle:
+    with (DATA / "traces/maze_route_trace.csv").open("w", newline="") as handle:
         writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(("step", "direction", "from_x", "from_y",
                          "to_x", "to_y", "result"))
         writer.writerows(records)
-    with (DATA / "maze_route_results.csv").open("w", newline="") as handle:
+    with (DATA / "results/maze_route_results.csv").open("w", newline="") as handle:
         writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(("route_length", "shortest_length", "final_position", "result"))
         writer.writerow((len(ROUTE), shortest, position, "PASS" if passed else "FAIL"))

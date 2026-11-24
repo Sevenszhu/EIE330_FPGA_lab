@@ -13,10 +13,10 @@ module movement_rom_tb;
     MovementROM dut (.x(x), .y(y), .movement(movement));
 
     initial begin
-        $dumpfile("data/movement_rom.vcd");
+        $dumpfile("data/waveforms/movement_rom.vcd");
         $dumpvars(0, movement_rom_tb);
-        $readmemh("data/expected_movement.hex", expected);
-        output_fd = $fopen("data/movement_rom_sim.csv", "w");
+        $readmemh("data/reference/expected_movement.hex", expected);
+        output_fd = $fopen("data/results/movement_rom_sim.csv", "w");
         if (!output_fd) $fatal(1, "Cannot open ROM result CSV");
         $fdisplay(output_fd, "x,y,address,observed_bits,expected_bits,result");
 
