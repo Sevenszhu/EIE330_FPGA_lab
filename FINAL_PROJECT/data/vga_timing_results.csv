@@ -1,0 +1,11 @@
+test_item,measured_value,unit,expected_value,result
+system_clock_period,20,ns,20,PASS
+pixel_clock_period,40,ns,40,PASS
+horizontal_counter_max,799,count,799,PASS
+vertical_counter_max,524,count,524,PASS
+horizontal_sync_pulse,96,pixel_clocks,96,PASS
+vertical_sync_pulse,2,scan_lines,2,PASS
+line_period,32000,ns,32000,PASS
+frame_period,16800000,ns,16800000,PASS
+block_width,16,pixels,16,PASS
+block_height,16,scan_lines,16,PASS
