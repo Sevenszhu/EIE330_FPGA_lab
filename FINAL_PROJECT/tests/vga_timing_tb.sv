@@ -20,7 +20,6 @@ module vga_timing_tb;
     integer results_fd, events_fd;
     integer i;
 
-    // A 20 ns system clock models the board's 50 MHz input clock.
     always #10 clk = ~clk;
 
     vga dut (
@@ -49,13 +48,11 @@ module vga_timing_tb;
         $fdisplay(results_fd, "test_item,measured_value,unit,expected_value,result");
         $fdisplay(events_fd, "time_ns,pixel_index,h_count,v_count,h_sync,v_sync,blockx,blocky");
 
-        // Measure both input and divided clocks while reset is asserted.
         @(posedge clk); #1; sys_t1 = $time;
         @(posedge clk); #1; sys_t2 = $time;
         @(posedge dut.clk25); #1; pixel_t1 = $time;
         @(posedge dut.clk25); #1; pixel_t2 = $time;
 
-        // Use the final reset-held pixel edge as the start of a complete frame.
         @(posedge dut.clk25); #1;
         frame_t0 = $time;
         if (dut.h_count !== 0 || dut.v_count !== 0)
@@ -74,26 +71,21 @@ module vga_timing_tb;
         for (i = 1; i <= FRAME_PIXELS; i = i + 1) begin
             @(posedge dut.clk25); #1;
 
-            // Read counter values after nonblocking assignments have settled.
             if (dut.h_count > h_max) h_max = dut.h_count;
             if (dut.v_count > v_max) v_max = dut.v_count;
 
-            // Count active sync samples within the first line and first frame.
             if (i < H_TOTAL && h_sync) h_sync_pixels = h_sync_pixels + 1;
             if (i < FRAME_PIXELS && dut.h_count == 0 && v_sync)
                 v_sync_lines = v_sync_lines + 1;
 
-            // Counter wraps provide the measured line and frame periods.
             if (i == H_TOTAL) line_period_ns = $time - frame_t0;
             if (i == FRAME_PIXELS) frame_period_ns = $time - frame_t0;
 
-            // The first block coordinate changes reveal the block dimensions.
             if (block_width_pixels == 0 && blockx == 1 && dut.v_count == 0)
                 block_width_pixels = dut.h_count;
             if (block_height_lines == 0 && blocky == 1 && dut.h_count == 0)
                 block_height_lines = dut.v_count;
 
-            // Save samples on each side of the important timing boundaries.
             if (i == 15 || i == 16 || i == 95 || i == 96 ||
                 i == 799 || i == 800 || i == 1599 || i == 1600 ||
                 i == 12799 || i == 12800 || i == 419199 ||
@@ -101,7 +93,6 @@ module vga_timing_tb;
                 log_event(i);
         end
 
-        // Write measured values and explicit pass/fail results for the report.
         $fdisplay(results_fd, "system_clock_period,%0d,ns,20,%s",
                   sys_t2 - sys_t1,
                   (sys_t2 - sys_t1 == 20) ? "PASS" : "FAIL");
